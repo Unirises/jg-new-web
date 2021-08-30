@@ -16,7 +16,7 @@
 
     @section('script')
     <!-- apexcharts -->
-    <script src="{{ URL::asset('/assets/libs/apexcharts/apexcharts.min.js') }}"></script>
+    <script src="{{ URL::asset('assets/libs/apexcharts/apexcharts.min.js') }}"></script>
     <!-- dashboard init -->
-    <script src="{{ URL::asset('/assets/js/pages/dashboard.init.js') }}"></script>
+    <script src="{{ URL::asset('assets/js/pages/dashboard.init.js') }}"></script>
     @endsection

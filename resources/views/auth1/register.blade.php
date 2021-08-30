@@ -4,7 +4,7 @@
 @lang('translation.Register')
 @endsection
 @section('css')
-<link href="{{ URL::asset('/assets/libs/bootstrap-datepicker/bootstrap-datepicker.min.css') }}" rel="stylesheet" type="text/css">
+<link href="{{ URL::asset('assets/libs/bootstrap-datepicker/bootstrap-datepicker.min.css') }}" rel="stylesheet" type="text/css">
 @endsection
 @section('body')
 
@@ -26,7 +26,7 @@
                                     </div>
                                 </div>
                                 <div class="col-5 align-self-end">
-                                    <img src="{{ URL::asset('/assets/images/profile-img.png') }}" alt="" class="img-fluid">
+                                    <img src="{{ URL::asset('assets/images/profile-img.png') }}" alt="" class="img-fluid">
                                 </div>
                             </div>
                         </div>
@@ -35,7 +35,7 @@
                                 <a href="index">
                                     <div class="avatar-md profile-user-wid mb-4">
                                         <span class="avatar-title rounded-circle bg-light">
-                                            <img src="{{ URL::asset('/assets/images/logo.svg') }}" alt="" class="rounded-circle" height="34">
+                                            <img src="{{ URL::asset('assets/images/logo.svg') }}" alt="" class="rounded-circle" height="34">
                                         </span>
                                     </div>
                                 </a>
@@ -159,5 +159,5 @@
 
     @endsection
     @section('script')
-    <script src="{{ URL::asset('/assets/libs/bootstrap-datepicker/bootstrap-datepicker.min.js') }}"></script>
+    <script src="{{ URL::asset('assets/libs/bootstrap-datepicker/bootstrap-datepicker.min.js') }}"></script>
     @endsection
