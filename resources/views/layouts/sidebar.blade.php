@@ -42,13 +42,13 @@
                 </li>
                 <li class="menu-title" key="t-menu">Riders</li>
                 <li>
-                    <a href="javascript: void(0);" class="waves-effect">
+                    <a href="{{ route('riders.index') }}" class="waves-effect">
                         <i class="bx bx-user"></i>
                         <span key="t-chat">Overview</span>
                     </a>
                 </li>
                 <li>
-                    <a href="javascript: void(0);" class="waves-effect">
+                    <a href="{{ route('riders.create') }}" class="waves-effect">
                         <i class="bx bx-user-plus"></i>
                         <span key="t-chat">Add New</span>
                     </a>

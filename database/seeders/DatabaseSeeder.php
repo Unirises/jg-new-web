@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use App\Models\Vehicle;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
@@ -40,6 +41,12 @@ class DatabaseSeeder extends Seeder
             'dob' => '1970/03/03',
             'avatar' => 'default.png',
             'role' => 2
+        ]);
+        Vehicle::create([
+            'user_id' => 3,
+            'license' => 'ABC1234',
+            'type' => 0,
+            'registration' => 'registration.png',
         ]);
         User::create([
             'name' => 'Client',

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\RiderController;
 use App\Http\Middleware\EnsureUserIsAdmin;
 use App\Http\Middleware\EnsureUserIsMerchant;
 use Illuminate\Support\Facades\Auth;
@@ -21,7 +22,7 @@ Auth::routes();
 Route::get('/', [App\Http\Controllers\HomeController::class, 'root'])->name('root');
 
 Route::middleware([EnsureUserIsAdmin::class])->group(function () {
-
+    Route::resource('riders', RiderController::class);
 });
 
 Route::middleware([EnsureUserIsMerchant::class])->group(function () {
