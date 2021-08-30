@@ -7,6 +7,7 @@
         <div id="sidebar-menu">
             <!-- Left Menu Start -->
             <ul class="metismenu list-unstyled" id="side-menu">
+                @if(Auth::user()->role->value == 0)
                 <li class="menu-title" key="t-menu">Admin</li>
                 <li>
                     <a href="javascript: void(0);" class="waves-effect">
@@ -52,6 +53,8 @@
                         <span key="t-chat">Add New</span>
                     </a>
                 </li>
+                @endif
+                @if(Auth::user()->role->value == 0 || Auth::user()->role->value == 1)
                 <li class="menu-title" key="t-menu">Listings</li>
                 <li>
                     <a href="javascript: void(0);" class="waves-effect">
@@ -71,6 +74,7 @@
                         <span key="t-chat">Add New Category</span>
                     </a>
                 </li>
+                @endif
                 <li class="menu-title" key="t-menu">Transactions</li>
                 <li>
                     <a href="javascript: void(0);" class="waves-effect">

@@ -56,6 +56,7 @@ class RegisterController extends Controller
             'password' => ['required', 'string', 'min:6', 'confirmed'],
             'dob' => ['required', 'date', 'before:today'],
             'avatar' => ['required', 'image' ,'mimes:jpg,jpeg,png','max:1024'],
+            'company_name' => 'required|string',
         ]);
     }
 
@@ -76,10 +77,12 @@ class RegisterController extends Controller
         
         return User::create([
             'name' => $data['name'],
+            'company_name' => $data['company_name'] ?? null,
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'dob' => date('Y-m-d', strtotime($data['dob'])),
             'avatar' => "/images/" . $avatarName,
+            'role' => 1,
         ]);
     }
 }
