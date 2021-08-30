@@ -1,7 +1,7 @@
 @extends('layouts.master-without-nav')
 
 @section('title')
-@lang('translation.Login') 2
+@lang('translation.Login')
 @endsection
 
 @section('css')
