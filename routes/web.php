@@ -21,6 +21,15 @@ Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'root'])->name('root');
 
+Route::middleware(['auth'])->group(function () {
+    Route::get('verification', [App\Http\Controllers\VerificationController::class, 'index'])->name('verification.index');
+    Route::post('verification/merchant', [App\Http\Controllers\VerificationController::class, 'merchant'])->name('verification.merchant.set');
+    
+    //Update User Details
+    Route::post('/update-profile/{id}', [App\Http\Controllers\HomeController::class, 'updateProfile'])->name('updateProfile');
+    Route::post('/update-password/{id}', [App\Http\Controllers\HomeController::class, 'updatePassword'])->name('updatePassword');
+});
+
 Route::middleware([EnsureUserIsAdmin::class])->group(function () {
     Route::resource('riders', RiderController::class);
 });
@@ -28,7 +37,3 @@ Route::middleware([EnsureUserIsAdmin::class])->group(function () {
 Route::middleware([EnsureUserIsMerchant::class])->group(function () {
 
 });
-
-//Update User Details
-Route::post('/update-profile/{id}', [App\Http\Controllers\HomeController::class, 'updateProfile'])->name('updateProfile');
-Route::post('/update-password/{id}', [App\Http\Controllers\HomeController::class, 'updatePassword'])->name('updatePassword');

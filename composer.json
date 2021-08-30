@@ -12,6 +12,7 @@
         "bavix/laravel-wallet": "^6.1",
         "bavix/laravel-wallet-vacuum": "^1.0",
         "bensampo/laravel-enum": "^3.4",
+        "cornford/googlmapper": "^3.3",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",

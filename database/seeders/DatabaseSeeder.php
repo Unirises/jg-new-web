@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Store;
 use App\Models\User;
 use App\Models\Vehicle;
 use Illuminate\Database\Seeder;
@@ -33,6 +34,16 @@ class DatabaseSeeder extends Seeder
             'dob' => '1970/03/03',
             'avatar' => 'default.png',
             'role' => 1
+        ]);
+        Store::create([
+           'user_id' => 2,
+           'representative_name' => 'Glennie',
+           'representative_contact' => '+639451494339',
+           'address' => 'National Capital Region',
+           'lat' => 14.6959,
+           'long' => 121.1217,
+           'hero' => 'hero.png',
+           'logo' => 'logo.png', 
         ]);
         User::create([
             'name' => 'Rider',

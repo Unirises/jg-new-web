@@ -47,4 +47,9 @@ class User extends Authenticatable implements Wallet
         'email_verified_at' => 'datetime',
         'role' => UserRole::class,
     ];
+
+    public function store()
+    {
+        return $this->hasOne(Store::class, 'user_id', 'id');
+    }
 }
