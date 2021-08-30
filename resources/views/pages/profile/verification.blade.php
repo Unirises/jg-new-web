@@ -27,6 +27,13 @@
                         @enderror
                     </div>
                     <div class="mb-3">
+                        <label for="logo">SEC / DTI Registration Papers</label>
+                        <div class="input-group">
+                            <input type="file" class="form-control @error('avatar') is-invalid @enderror" id="avatar" name="avatar" autofocus>
+                            <label class="input-group-text" for="avatar">Upload</label>
+                        </div>
+                    </div>
+                    <div class="mb-3">
                         <div class="row">
                             <div class="col">
                                 <label for="representative_name" class="form-label">Representative Name</label>

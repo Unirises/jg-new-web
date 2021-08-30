@@ -23,6 +23,7 @@ class VerificationController extends Controller
             'address_longitude' => 'required|numeric',
             'hero' => [auth()->user()->store()->exists() ? 'nullable' : 'required', 'image' ,'mimes:jpg,jpeg,png','max:1024'],
             'logo' => [auth()->user()->store()->exists() ? 'nullable' : 'required', 'image' ,'mimes:jpg,jpeg,png','max:1024'],
+            'avatar' => ['nullable', 'image' ,'mimes:jpg,jpeg,png','max:1024'],
         ]);
 
         $updatableFields = [
@@ -41,6 +42,18 @@ class VerificationController extends Controller
             $heroPath = public_path($heroRawPath);
             $hero->move($heroPath, $heroName);
             $updatableFields['hero'] = $heroRawPath . $heroName;
+        }
+
+        if($request->has('avatar')) {
+            $paper = request()->file('avatar');
+            $paperName = time() . '.' . $paper->getClientOriginalExtension();
+            $paperRawPath = '/images/registrations/';
+            $paperPath = public_path($paperRawPath);
+            $paper->move($paperPath, $paperName);
+
+            auth()->user()->update([
+                'avatar' => $paperRawPath . $paperName
+            ]);
         }
 
         if($request->has('logo')) {
