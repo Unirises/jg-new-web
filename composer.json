@@ -9,6 +9,8 @@
     "license": "MIT",
     "require": {
         "php": "^7.3|^8.0",
+        "bavix/laravel-wallet": "^6.1",
+        "bavix/laravel-wallet-vacuum": "^1.0",
         "bensampo/laravel-enum": "^3.4",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
