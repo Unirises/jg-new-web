@@ -50,6 +50,7 @@
                         <span key="t-chat">Overview</span>
                     </a>
                 </li>
+                @if(!Auth::user()->role->value == 0)
                 <li>
                     <a href="javascript: void(0);" class="waves-effect">
                         <i class="bx bx-list-plus"></i>
@@ -62,6 +63,7 @@
                         <span key="t-chat">Add New Category</span>
                     </a>
                 </li>
+                @endif
                 @endif
                 <li class="menu-title" key="t-menu">Transactions</li>
                 <li>
