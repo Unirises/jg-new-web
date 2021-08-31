@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\UserRole;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class RiderController extends Controller
@@ -13,7 +15,8 @@ class RiderController extends Controller
      */
     public function index()
     {
-        return view('pages.riders.index');
+        $riders = User::where('role', UserRole::Rider)->with('vehicle')->get();
+        return view('pages.riders.index', compact('riders'));
     }
 
     /**

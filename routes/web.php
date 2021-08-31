@@ -32,6 +32,9 @@ Route::middleware(['auth'])->group(function () {
 });
 
 Route::middleware([EnsureUserIsAdmin::class])->group(function () {
+    Route::put('verification/rider/{id}/approve', [App\Http\Controllers\VerificationController::class, 'approveRider'])->name('verification.rider.approve');
+    Route::put('verification/rider/{id}/deny', [App\Http\Controllers\VerificationController::class, 'denyRider'])->name('verification.rider.deny');
+
     Route::resource('riders', RiderController::class);
 });
 

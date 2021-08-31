@@ -15,6 +15,24 @@ class VerificationController extends Controller
         return view('pages.profile.verification');
     }
 
+    public function denyRider(int $id)
+    {
+        Vehicle::where('user_id', $id)->update([
+            'is_verified' => false
+        ]);
+
+        return redirect()->back();
+    }
+
+    public function approveRider(int $id)
+    {
+        Vehicle::where('user_id', $id)->update([
+            'is_verified' => true
+        ]);
+
+        return redirect()->back();
+    }
+
     public function rider(Request $request)
     {
         $validated = $this->validate($request, [

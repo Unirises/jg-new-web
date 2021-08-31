@@ -15,6 +15,7 @@ class Vehicle extends Model
         'license',
         'type',
         'registration',
+        'is_verified',
     ];
 
     protected $casts = [
