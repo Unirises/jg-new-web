@@ -32,7 +32,7 @@ class VerificationController extends Controller
         if($request->has('registration')) {
             $hero = request()->file('registration');
             $heroName = time() . '.' . $hero->getClientOriginalExtension();
-            $heroRawPath = '/images/heros/';
+            $heroRawPath = '/images/riders/';
             $heroPath = public_path($heroRawPath);
             $hero->move($heroPath, $heroName);
             $updatableFields['registration'] = $heroRawPath . $heroName;
