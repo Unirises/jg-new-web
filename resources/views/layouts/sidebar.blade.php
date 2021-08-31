@@ -29,7 +29,7 @@
                 </li>
                 <li class="menu-title" key="t-menu">Merchants</li>
                 <li>
-                    <a href="javascript: void(0);" class="waves-effect">
+                    <a href="{{ route('merchants.index') }}" class="waves-effect">
                         <i class="bx bx-store"></i>
                         <span key="t-chat">Overview</span>
                     </a>

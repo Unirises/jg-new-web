@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MerchantController;
 use App\Http\Controllers\RiderController;
 use App\Http\Middleware\EnsureUserIsAdmin;
 use App\Http\Middleware\EnsureUserIsMerchant;
@@ -34,8 +35,11 @@ Route::middleware(['auth'])->group(function () {
 Route::middleware([EnsureUserIsAdmin::class])->group(function () {
     Route::put('verification/rider/{id}/approve', [App\Http\Controllers\VerificationController::class, 'approveRider'])->name('verification.rider.approve');
     Route::put('verification/rider/{id}/deny', [App\Http\Controllers\VerificationController::class, 'denyRider'])->name('verification.rider.deny');
+    Route::put('verification/merchant/{id}/approve', [App\Http\Controllers\VerificationController::class, 'approveMerchant'])->name('verification.merchant.approve');
+    Route::put('verification/merchant/{id}/deny', [App\Http\Controllers\VerificationController::class, 'denyMerchant'])->name('verification.merchant.deny');
 
     Route::resource('riders', RiderController::class);
+    Route::resource('merchants', MerchantController::class);
 });
 
 Route::middleware([EnsureUserIsMerchant::class])->group(function () {

@@ -33,6 +33,24 @@ class VerificationController extends Controller
         return redirect()->back();
     }
 
+    public function denyMerchant(int $id)
+    {
+        Store::where('user_id', $id)->update([
+            'is_verified' => false
+        ]);
+
+        return redirect()->back();
+    }
+
+    public function approveMerchant(int $id)
+    {
+        Store::where('user_id', $id)->update([
+            'is_verified' => true
+        ]);
+
+        return redirect()->back();
+    }
+
     public function rider(Request $request)
     {
         $validated = $this->validate($request, [
