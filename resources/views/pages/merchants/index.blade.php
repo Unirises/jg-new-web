@@ -13,7 +13,7 @@
         <div class="card">
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table align-middle">
+                    <table class="table align-middle" id="table">
                         <thead class="table-light">
                             <tr>
                                 <th>User ID</th>
