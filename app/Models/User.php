@@ -52,4 +52,9 @@ class User extends Authenticatable implements Wallet
     {
         return $this->hasOne(Store::class, 'user_id', 'id');
     }
+
+    public function vehicle()
+    {
+        return $this->hasOne(Vehicle::class, 'user_id', 'id');
+    }
 }

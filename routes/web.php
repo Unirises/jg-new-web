@@ -24,6 +24,7 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'root'])->name('roo
 Route::middleware(['auth'])->group(function () {
     Route::get('verification', [App\Http\Controllers\VerificationController::class, 'index'])->name('verification.index');
     Route::post('verification/merchant', [App\Http\Controllers\VerificationController::class, 'merchant'])->name('verification.merchant.set');
+    Route::post('verification/rider', [App\Http\Controllers\VerificationController::class, 'rider'])->name('verification.rider.set');
     
     //Update User Details
     Route::post('/update-profile/{id}', [App\Http\Controllers\HomeController::class, 'updateProfile'])->name('updateProfile');

@@ -108,11 +108,62 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <button class="btn btn-primary">Update</button>
+                    <button class="btn btn-primary">Submit</button>
                 </div>
             </form>
         </div>
         <!-- end card -->
+    </div>
+</div>
+@elseif(Auth::user()->role->value == 2)
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <form action="{{ route('verification.rider.set') }}" method="POST" enctype='multipart/form-data'>
+                @csrf
+                <div class="card-body">
+                    <h4 class="card-title mb-4">Verification Data</h4>
+                    <div class="mb-3">
+                        <label for="license" class="form-label">License Number</label>
+                        <input type="text" class="form-control" id="license" name="license" value="{{ old('license') ?? Auth::user()->vehicle->license ?? '' }}" required>
+
+                        @error('license')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+                    <div class="mb-3">
+                        <div class="mb-3">
+                            <label for="type" class="form-label">State</label>
+                            <select id="type" name="type" class="form-select">
+                                <option>Choose...</option>
+                                <option value="0" {{ ( Auth::user()->vehicle->type->value ?? null) == 0 ? 'selected' : '' }}>Motorcycle</option>
+                                <option value="1" {{ ( Auth::user()->vehicle->type->value ?? null) == 1 ? 'selected' : '' }}>Sedan</option>
+                                <option value="2" {{ ( Auth::user()->vehicle->type->value ?? null) == 2 ? 'selected' : '' }}>SUV</option>
+                                <option value="3" {{ ( Auth::user()->vehicle->type->value ?? null) == 3 ? 'selected' : '' }}>Van</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="hero">Registration Papers</label>
+                        <div class="input-group">
+                            <input type="file" class="form-control @error('registration') is-invalid @enderror" id="registration" name="registration" autofocus>
+                            <label class="input-group-text" for="registration">Upload</label>
+                        </div>
+
+                        @error('registration')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 @endif
