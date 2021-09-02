@@ -39,22 +39,16 @@
                 @if(Auth::user()->role->value == 0 || Auth::user()->role->value == 1)
                 <li class="menu-title" key="t-menu">Listings</li>
                 <li>
-                    <a href="javascript: void(0);" class="waves-effect">
+                    <a href="{{ route('category.index') }}" class="waves-effect">
                         <i class="bx bx-list-ul"></i>
                         <span key="t-chat">Overview</span>
                     </a>
                 </li>
                 @if(!Auth::user()->role->value == 0)
                 <li>
-                    <a href="javascript: void(0);" class="waves-effect">
+                    <a href="{{ route('category.create') }}" class="waves-effect">
                         <i class="bx bx-list-plus"></i>
-                        <span key="t-chat">Create New Listing</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="javascript: void(0);" class="waves-effect">
-                        <i class="bx bx-list-plus"></i>
-                        <span key="t-chat">Add New Category</span>
+                        <span key="t-chat">Create New Category</span>
                     </a>
                 </li>
                 @endif
