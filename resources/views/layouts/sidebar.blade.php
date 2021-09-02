@@ -11,12 +11,6 @@
                 <li class="menu-title" key="t-menu">Admin</li>
                 <li>
                     <a href="javascript: void(0);" class="waves-effect">
-                        <i class="bx bx-bell"></i>
-                        <span key="t-chat">Send Push Notification</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="javascript: void(0);" class="waves-effect">
                         <i class="bx bx-money"></i>
                         <span key="t-chat">Payouts</span>
                     </a>

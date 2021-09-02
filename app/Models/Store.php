@@ -20,4 +20,9 @@ class Store extends Model
         'hero',
         'logo',
     ];
+
+    public function categories()
+    {
+        return $this->hasMany(ItemCategory::class);
+    }
 }
