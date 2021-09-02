@@ -28,7 +28,8 @@
                                 <td>{{ $category->id }}</td>
                                 <td>{{ $category->name }}</td>
                                 <td>
-                                    <a href="{{ route('category.show', $category) }}">View</a>
+                                    <a href="{{ route('category.show', $category) }}" class="btn btn-primary btn-block">View</a>
+                                    <a href="{{ route('category.edit', $category) }}" class="btn btn-primary btn-block">Edit</a>
                                 </td>
                             </tr>
                             @endforeach

@@ -45,8 +45,8 @@
 
     <!-- JAVASCRIPT -->
     @include('layouts.vendor-scripts')
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.0/js/jquery.dataTables.js" async defer></script>
-    <script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.0/js/jquery.dataTables.js" defer></script>
+    <script defer>
         $(document).ready(function() {
             $('#table thead tr').clone(true).appendTo('#table thead');
             $('#table thead tr:eq(1) th').each(function(i) {
