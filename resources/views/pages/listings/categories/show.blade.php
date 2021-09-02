@@ -28,7 +28,7 @@
                                 <td>{{ $item->id }}</td>
                                 <td>{{ $item->name }}</td>
                                 <td>
-                                    <a href="{{ route('category.items.show', [$category, $item]) }}">View</a>
+                                    <a href="{{ route('category.item.show', [$category, $item]) }}">View</a>
                                 </td>
                             </tr>
                             @endforeach
