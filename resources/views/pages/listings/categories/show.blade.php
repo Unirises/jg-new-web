@@ -41,6 +41,7 @@
                     @csrf
                     @method('DELETE')
                     <a href="{{ route('category.edit', $category) }}" class="btn btn-primary btn-block">Edit</a>
+                    <a href="{{ route('category.item.create', $category) }}" class="btn btn-primary">Create New Item</a>
                     <button class="btn btn-danger btn-block">Delete</button>
                 </form>
             </div>
