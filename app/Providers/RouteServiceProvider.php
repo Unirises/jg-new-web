@@ -2,6 +2,10 @@
 
 namespace App\Providers;
 
+use App\Models\Item;
+use App\Models\ItemCategory;
+use App\Models\ItemVariant;
+use App\Models\Variant;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Http\Request;
@@ -35,6 +39,19 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        Route::bind('category', function ($value) {
+            return ItemCategory::where('id', $value)->firstOrFail();
+        });
+        Route::bind('item', function ($value) {
+            return Item::where('id', $value)->firstOrFail();
+        });
+        Route::bind('variant', function ($value) {
+            return ItemVariant::where('id', $value)->firstOrFail();
+        });
+        Route::bind('selection', function ($value) {
+            return Variant::where('id', $value)->firstOrFail();
+        });
+        
         $this->configureRateLimiting();
 
         $this->routes(function () {

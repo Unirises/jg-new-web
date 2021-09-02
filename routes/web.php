@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\Listing\CategoryController;
+use App\Http\Controllers\Listing\ItemController;
+use App\Http\Controllers\Listing\ItemVariantController;
+use App\Http\Controllers\Listing\VariantController;
 use App\Http\Controllers\MerchantController;
 use App\Http\Controllers\RiderController;
 use App\Http\Middleware\EnsureUserIsAdmin;
@@ -43,5 +47,8 @@ Route::middleware([EnsureUserIsAdmin::class])->group(function () {
 });
 
 Route::middleware([EnsureUserIsMerchant::class])->group(function () {
-
+    Route::resource('category', CategoryController::class);
+    Route::resource('category.item', ItemController::class);
+    Route::resource('category.item.variants', ItemVariantController::class);
+    Route::resource('category.item.variants.selection', VariantController::class);
 });

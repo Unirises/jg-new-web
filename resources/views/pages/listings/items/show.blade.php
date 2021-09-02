@@ -25,12 +25,12 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($item->item_variants as $variants)
+                            @foreach($item->item_variants as $variant)
                             <tr>
-                                <td>{{ $item->id }}</td>
-                                <td>{{ $item->name }}</td>
-                                <td>{{ $item->min }}</td>
-                                <td>{{ $item->max }}</td>
+                                <td>{{ $variant->id }}</td>
+                                <td>{{ $variant->name }}</td>
+                                <td>{{ $variant->min }}</td>
+                                <td>{{ $variant->max }}</td>
                                 <td>
                                     <a href="{{ route('category.item.variants.show', [$category, $item, $variant]) }}" class="btn btn-primary btn-block">View</a>
                                     <a href="{{ route('category.item.variants.edit', [$category, $item, $variant]) }}" class="btn btn-primary btn-block">Edit</a>

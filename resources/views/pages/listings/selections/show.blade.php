@@ -5,8 +5,8 @@
 @section('content')
 
 @component('components.breadcrumb')
-@slot('li_1') Item Variants @endslot
-@slot('title') View Item Variant @endslot
+@slot('li_1') Variant @endslot
+@slot('title') View Variant @endslot
 
 @endcomponent
 <div class="row">
@@ -24,18 +24,14 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($variant->variants as $selection)
+                            @foreach($variant->selections as $selection)
                             <tr>
                                 <td>{{ $selection->id }}</td>
                                 <td>{{ $selection->name }}</td>
                                 <td>{{ $selection->additional_price }}</td>
                                 <td>
-                                    <form action="{{ route('category.item.variants.selection.destroy', [$category, $item, $variant, $selection]) }}" method="POST">
-                                        @csrf
-                                        @method('DELETE')
-                                        <a href="{{ route('category.item.variants.edit', [$category, $item, $variant]) }}" class="btn btn-primary btn-block">Edit</a>
-                                        <button class="btn btn-danger">Delete</button>
-                                    </form>
+                                    <!-- <a href="{{ route('category.item.variants.show', [$category, $item, $variant]) }}" class="btn btn-primary btn-block">View</a>
+                                    <a href="{{ route('category.item.variants.edit', [$category, $item, $variant]) }}" class="btn btn-primary btn-block">Edit</a> -->
                                 </td>
                             </tr>
                             @endforeach
@@ -44,11 +40,10 @@
                 </div>
             </div>
             <div class="card-footer">
-                <form action="{{ route('category.item.variants.destroy', [$category, $item, $variant]) }}" method="POST">
+                <a href="{{ route('category.item.variants.selection.edit', [$category, $item, $variant, $id]) }}" class="btn btn-primary btn">Edit Variant Category</a>
+                <form action="{{ route('category.item.variants.selection.destroy', [$category, $item, $variant, $id]) }}" method="POST">
                     @csrf
                     @method('DELETE')
-                    <a href="{{ route('category.item.variants.selection.create', [$category, $item, $variant]) }}" class="btn btn-primary btn">Create New Variant Selection</a>
-                    <a href="{{ route('category.item.variants.edit', [$category, $item, $variant]) }}" class="btn btn-primary btn">Edit Variant Category</a>
                     <button class="btn btn-danger">Delete Variant Category</button>
                 </form>
             </div>
