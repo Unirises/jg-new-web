@@ -31,18 +31,18 @@
 
             <div class="dropdown d-inline-block d-lg-none ms-2">
                 <button type="button" class="btn header-item noti-icon waves-effect" id="page-header-search-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="mdi mdi-magnify"></i>
+                    <i class="bx bx-user"></i>
                 </button>
                 <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0" aria-labelledby="page-header-search-dropdown">
-
-                    <form class="p-3">
-                        <div class="form-group m-0">
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="@lang('translation.Search')" aria-label="Search input">
-
-                                <button class="btn btn-primary" type="submit"><i class="mdi mdi-magnify"></i></button>s
-                            </div>
-                        </div>
+                    <!-- item-->
+                    <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-user font-size-16 align-middle me-1"></i> <span key="t-profile">@lang('translation.Profile')</span></a>
+                    <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-wallet font-size-16 align-middle me-1"></i> <span key="t-my-wallet">@lang('translation.My_Wallet')</span></a>
+                    <a class="dropdown-item" href="{{ route('verification.index') }}"><i class="bx bx-check-shield font-size-16 align-middle me-1"></i> <span key="t-my-wallet">Verification Status</span></a>
+                    <a class="dropdown-item d-block" href="javascript:void(0);" data-bs-toggle="modal" data-bs-target=".change-password"><i class="bx bx-wrench font-size-16 align-middle me-1"></i> <span key="t-settings">Change Password</span></a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item text-danger" href="javascript:void();" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i> <span key="t-logout">@lang('translation.Logout')</span></a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
                     </form>
                 </div>
             </div>
