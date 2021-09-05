@@ -37,6 +37,7 @@
                                 <td><img src="{{ $rider->vehicle->registration ?? null }}" style="max-width: 250px;"></td>
                                 <td>{{ ($rider->vehicle->is_verified ?? false) ? 'VERIFIED' : 'NOT VERIFIED' }}</td>
                                 <td>
+                                    @if($rider->vehicle()->exists())
                                     <form action="{{ route('verification.rider.approve', $rider->id) }}" method="POST">
                                         @csrf
                                         @method('PUT')

@@ -41,6 +41,7 @@
                                 <td><img src="{{ $merchant->store->logo ?? null }}" style="max-width: 250px;"></td>
                                 <td>{{ ($merchant->store->is_verified ?? false) ? 'VERIFIED' : 'NOT VERIFIED' }}</td>
                                 <td>
+                                    @if($merchant->store()->exists())
                                     <form action="{{ route('verification.merchant.approve', $merchant->id) }}" method="POST">
                                         @csrf
                                         @method('PUT')
@@ -51,6 +52,7 @@
                                         @method('PUT')
                                         <button class="btn btn-danger btn-block">Deny Verification</button>
                                     </form>
+                                    @endif
                                 </td>
                             </tr>
                             @endforeach

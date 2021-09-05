@@ -36,7 +36,7 @@
                     </a>
                 </li>
                 @endif
-                @if(Auth::user()->role->value == 0 || Auth::user()->role->value == 1)
+                @if(Auth::user()->role->value == 1)
                 <li class="menu-title" key="t-menu">Listings</li>
                 <li>
                     <a href="{{ route('category.index') }}" class="waves-effect">
