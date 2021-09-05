@@ -40,6 +40,18 @@
                             </div>
                         </div>
                     </div>
+                    <div class="mb-3">
+                        <label for="photo">Item Photo</label>
+                        <div class="input-group">
+                            <input type="file" class="form-control @error('photo') is-invalid @enderror" id="photo" name="photo" autofocus required>
+                            <label class="input-group-text" for="photo">Upload</label>
+                        </div>
+                        @error('photo')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
                 </div>
                 <div class="card-footer">
                     <button class="btn btn-primary">Submit</button>

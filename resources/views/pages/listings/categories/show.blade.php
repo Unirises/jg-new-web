@@ -21,6 +21,7 @@
                                 <th>Name</th>
                                 <th>Price</th>
                                 <th>Is Available?</th>
+                                <th>Photo</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -31,6 +32,12 @@
                                 <td>{{ $item->name }}</td>
                                 <td>{{ $item->price }}</td>
                                 <td>{{ $item->is_available == 1 ? 'Yes' : 'No' }}</td>
+                                <td>
+                                    @if($item->photo != null)<img src="{{ $item->photo }}" alt="Item Photo" style="max-width: 250px;">
+                                    @else
+                                    N/A
+                                    @endif
+                                </td>
                                 <td>
                                     <a href="{{ route('category.item.show', [$category, $item]) }}" class="btn btn-block btn-primary">View</a>
                                     <a href="{{ route('category.item.edit', [$category, $item]) }}" class="btn btn-block btn-primary">Edit</a>

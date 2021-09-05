@@ -41,15 +41,25 @@ class ItemController extends Controller
             'item_name' => 'required|string',
             'price' => 'required|numeric',
             'itemAvailabilityRadioOptions' => 'required|boolean',
-            'photo' => 'nullable|string'
+            'photo' => 'nullable|image'
         ]);
+        
+        $photo = null;
+
+        if (request()->has('photo')) {            
+            $avatar = request()->file('photo');
+            $avatarName = time() . '.' . $avatar->getClientOriginalExtension();
+            $avatarPath = public_path('/images/food/');
+            $avatar->move($avatarPath, $avatarName);
+            $photo = '/images/food/' . $avatarName;
+        }
 
         Item::create([
             'name' => $request['item_name'],
             'price' => $request['price'],
             'item_categories_id' => $category->id,
             'is_available' => $request['itemAvailabilityRadioOptions'],
-            'photo' => $request['photo'],
+            'photo' => $photo,
         ]);
 
         return redirect()->route('category.show', $category->id);
@@ -90,8 +100,16 @@ class ItemController extends Controller
             'item_name' => 'required|string',
             'price' => 'required|numeric',
             'itemAvailabilityRadioOptions' => 'required|boolean',
-            'photo' => 'nullable|string'
+            'photo' => 'nullable|image'
         ]);
+
+        if (request()->has('photo')) {            
+            $avatar = request()->file('photo');
+            $avatarName = time() . '.' . $avatar->getClientOriginalExtension();
+            $avatarPath = public_path('/images/food/');
+            $avatar->move($avatarPath, $avatarName);
+            $item->photo = '/images/food/' . $avatarName;
+        }
 
         $item->fill([
             'name' => $request['item_name'],
@@ -100,7 +118,7 @@ class ItemController extends Controller
         ]);
 
         if ($request->has('photo')) {
-            $item->photo = $request['photo'];
+            
         }
 
         $item->save();
